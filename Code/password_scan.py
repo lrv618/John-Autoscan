@@ -17,9 +17,9 @@ class PasswordScan:
 
     
     def addUserid(self):
-        passFiles = os.listdir(self.unix_in)  # 获取输入目录中的文件列表
+        passFiles = os.listdir(self.unix_in)  
         
-        weak_password = set()  # 用来跟踪已经存在的用户的集合
+        weak_password = set()  
 
         with open(self.wordlist, 'a+') as w:
             for line in w:
@@ -31,8 +31,8 @@ class PasswordScan:
                     for password in f:
                         user = password.split(":", 1)[0]  
                         if user not in weak_password:  
-                            w.write(user + "\n")  # 将用户追加到字典中
-                            weak_password.add(user)  # 将新用户添加到已集合中
+                            w.write(user + "\n")  
+                            weak_password.add(user)  
 
 
 
@@ -60,7 +60,7 @@ class PasswordScan:
 
             output_file = os.path.join(self.unix_out, passfile)
             with open(output_file, 'w') as f:
-                f.write('\n'.join(unique_results))  # 写入输出文件
+                f.write('\n'.join(unique_results))  
 
 
     def disPlay(self):
